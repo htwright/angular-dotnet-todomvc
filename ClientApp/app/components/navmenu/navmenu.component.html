@@ -27,7 +27,12 @@
                         <span class='glyphicon glyphicon-th-list'></span> Fetch data
                     </a>
                 </li>
-            </ul>
+                <li [routerLinkActive]="['link-active']">
+                  <a [routerLink]="['/todo']">
+                      <span class='glyphicon glyphicon-th-list'></span> Todo
+                  </a>
+              </li>
+          </ul>
         </div>
     </div>
 </div>

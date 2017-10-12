@@ -1,9 +1,12 @@
 <h1>Weather forecast</h1>
 
 <p>This component demonstrates fetching data from the server.</p>
-
 <p *ngIf="!forecasts"><em>Loading...</em></p>
-
+<form>
+  <input #myInput type="text">
+  <button (click)="onClick(myInput.value)">Submit</button>
+  </form>
+  
 <table class='table' *ngIf="forecasts">
     <thead>
         <tr>
