@@ -1,6 +1,6 @@
-<h1>Weather forecast</h1>
+<h1>Todos</h1>
 
-<p>This component demonstrates fetching data from the server.</p>
+<p>Simple Todo MVC built with .Net, Angular, and PSQL</p>
 <p *ngIf="!todos"><em>Loading...</em></p>
 <form>
   <input #myInput type="text">
@@ -20,6 +20,7 @@
             <td>{{ todo.id }}</td>
             <td>{{ todo.task }}</td>
             <td>{{ todo.done ? 'complete' : 'incomplete' }}</td>
+            <a (click)="onDelete(todo)">Delete</a>
         </tr>
     </tbody>
 </table>

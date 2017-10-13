@@ -60,6 +60,11 @@ namespace angular_dotnet_todomvc.Controllers
           return Todo.GetAll();
         }
 
+        public void Create(string input){
+          Todo.Create(input);
+          RedirectToAction("Todos");
+        }
+
         
 
         }

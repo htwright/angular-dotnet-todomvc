@@ -1,5 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { Http } from '@angular/http';
+import { TodoService } from './todo.service'
 
 @Component({
     selector: 'todo',
@@ -11,6 +12,8 @@ export class TodoComponent {
       console.log(input);
     }
 
+
+
     public todos: Todo[];
 
     constructor(http: Http, @Inject('BASE_URL') baseUrl: string) {
@@ -18,9 +21,14 @@ export class TodoComponent {
             this.todos = result.json() as Todo[];
         }, error => console.error(error));
     }
+
+    onDelete(todo:Todo):void{
+      console.log(todo);
+      // Http({method: 'GET', url:baseUrl + 'api/todo/delete/' + todo.id})
+    }
 }
 
-interface Todo {
+export interface Todo {
     id: number;
     task: string;
     done: boolean;
