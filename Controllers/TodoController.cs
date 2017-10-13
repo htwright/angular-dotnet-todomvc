@@ -53,34 +53,12 @@ namespace angular_dotnet_todomvc.Controllers
     [Route("api/[controller]")]
     public class TodoController : Controller
     {
-        // private static string[] Summaries = new[]
-        // {
-        //     "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        // };
-
-        // public todos = new Todo[];
 
         [HttpGet("[action]")]
-        public IEnumerable<Todo> Todos()
-        {
+        public IEnumerable<Todo> Todos() {
   
           return Todo.GetAll();
         }
-
-        // public class WeatherForecast
-        // {
-        //     public string DateFormatted { get; set; }
-        //     public int TemperatureC { get; set; }
-        //     public string Summary { get; set; }
-
-        //     public int TemperatureF
-        //     {
-        //         get
-        //         {
-        //             return 32 + (int)(TemperatureC / 0.5556);
-        //         }
-        //     }
-        // }
 
         
 

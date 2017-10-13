@@ -14,7 +14,7 @@ export class TodoComponent {
     public todos: Todo[];
 
     constructor(http: Http, @Inject('BASE_URL') baseUrl: string) {
-        http.get(baseUrl + 'api/todo').subscribe(result => {
+        http.get(baseUrl + 'api/todo/todos').subscribe(result => {
             this.todos = result.json() as Todo[];
         }, error => console.error(error));
     }
