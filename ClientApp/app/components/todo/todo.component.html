@@ -2,9 +2,9 @@
 
 <p>Simple Todo MVC built with .Net, Angular, and PSQL</p>
 <p *ngIf="!todos"><em>Loading...</em></p>
-<form>
+<form >
   <input #myInput type="text">
-  <button (click)="onClick(myInput.value)">Submit</button>
+  <button (click)="onSubmit(myInput.value)">Submit</button>
   </form>
   
 <table class='table' *ngIf="todos">

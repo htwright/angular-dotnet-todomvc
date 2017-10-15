@@ -13,7 +13,7 @@ export class TodoComponent implements OnInit {
       console.log(input);
     }
 
-    ngOnInit(){
+    ngOnInit():void{
       this.todoService.getTodos().subscribe(result => {
         this.todos = result;
       }, error => console.error(error));
@@ -32,7 +32,7 @@ export class TodoComponent implements OnInit {
       this.todoService.deleteById(todo.id);
     }
 
-    onSubmit(text:string){
+    onSubmit(text:string):void{
       this.todoService.create(text);
     }
 }

@@ -15,15 +15,16 @@ export class TodoService {
   }
 
   getTodos():Observable<Todo[]>{
-      return this.http.get('http://localhost:5000/api/todo/todos').map(res => res.json());
+      return this.http.get('http://localhost:5000/api/todo/').map(res => res.json());
   }
 
   deleteById(id:number){
-    return this.http.get('http://localhost:5000/api/todo/delete/' + id.toString());
+    return this.http.delete('http://localhost:5000/api/todo/' + id.toString());
   }
 
   create(input:string){
-    return this.http.post('http://localhost:5000/api/todo/create/', {input:input});
+    console.log(`creating with input: ${input}`);
+    return this.http.post('http://localhost:5000/api/todo/create/', input);
   }
 
 }
