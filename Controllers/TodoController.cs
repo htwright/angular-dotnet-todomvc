@@ -20,9 +20,15 @@ namespace angular_dotnet_todomvc.Controllers
 
       
 
-        public void Create(string input){
+        [HttpPost("[action]")]
+        public IActionResult Create(string input){
           Todo.Create(input);
-          RedirectToAction("Todos");
+          return RedirectToAction("Todos");
+        }
+
+        public IActionResult Delete(int id){
+          Todo.Delete(id);
+          return RedirectToAction("Todos");
         }
 
         

@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 import { TodoService } from '../../services/todo.service'
 
@@ -7,25 +7,33 @@ import { TodoService } from '../../services/todo.service'
     templateUrl: './todo.component.html',
     providers: [TodoService]
 })
-export class TodoComponent {
+export class TodoComponent implements OnInit {
 
     onClick(input:string){
       console.log(input);
     }
 
+    ngOnInit(){
+      this.todoService.getTodos().subscribe(result => {
+        this.todos = result;
+      }, error => console.error(error));
+
+    }
 
 
     public todos: Todo[];
+    
 
     constructor(http: Http, @Inject('BASE_URL') baseUrl: string, private todoService: TodoService) {
-      this.todoService.getTodos().subscribe(result => {
-        this.todos = result.json() as Todo[];
-      }, error => console.error(error));
+
     }
 
     onDelete(todo:Todo):void{
-      console.log(todo);
-      // Http({method: 'GET', url:baseUrl + 'api/todo/delete/' + todo.id})
+      this.todoService.deleteById(todo.id);
+    }
+
+    onSubmit(text:string){
+      this.todoService.create(text);
     }
 }
 
