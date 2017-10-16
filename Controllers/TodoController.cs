@@ -22,10 +22,8 @@ namespace angular_dotnet_todomvc.Controllers
       
 
         [HttpPost]
-        public void Post([FromBody] string input){
-          Console.WriteLine(input);
-          
-          // Todo.Create(input);
+        public void Post([FromBody] StoryAddRequest request){
+          Todo.Create(request.Input);
         }
 
         [HttpDelete("{id}")]
@@ -37,3 +35,7 @@ namespace angular_dotnet_todomvc.Controllers
 
         }
     }
+public class StoryAddRequest
+{
+    public string Input { get; set; }
+}

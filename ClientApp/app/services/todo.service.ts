@@ -24,7 +24,7 @@ export class TodoService {
 
   create(input:string){
     console.log(`creating with input: ${input}`);
-    return this.http.post('http://localhost:5000/api/todo/',{input}).subscribe(resp => console.log(resp));
+    return this.http.post('http://localhost:5000/api/todo/',{'input':input}).subscribe(resp => console.log(resp));
   }
 
 }
