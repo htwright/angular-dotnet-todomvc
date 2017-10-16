@@ -14,25 +14,23 @@ namespace angular_dotnet_todomvc.Controllers
 
         [HttpGet]
         public IEnumerable<Todo> Get() {
-  
+          Console.WriteLine("getting");
+          
           return Todo.GetAll();
         }
 
       
 
         [HttpPost]
-        public IActionResult Post([FromBody]string input){
-          Console.WriteLine("creating");
-          Todo.Create(input);
-          return RedirectToAction("Get");
+        public void Post([FromBody] string input){
+          Console.WriteLine(input);
+          
+          // Todo.Create(input);
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id){
-          Console.WriteLine("Deleteing" + id);
+        public void Delete(int id){
           Todo.Delete(id);
-
-          return RedirectToAction("Get");
         }
 
         

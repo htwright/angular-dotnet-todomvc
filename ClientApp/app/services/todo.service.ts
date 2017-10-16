@@ -19,12 +19,12 @@ export class TodoService {
   }
 
   deleteById(id:number){
-    return this.http.delete('http://localhost:5000/api/todo/' + id.toString());
+    return this.http.delete('http://localhost:5000/api/todo/' + id.toString()).subscribe(resp => console.log(resp));
   }
 
   create(input:string){
     console.log(`creating with input: ${input}`);
-    return this.http.post('http://localhost:5000/api/todo/create/', input);
+    return this.http.post('http://localhost:5000/api/todo/',{input}).subscribe(resp => console.log(resp));
   }
 
 }
