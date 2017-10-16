@@ -13,6 +13,10 @@ export class TodoComponent implements OnInit {
       console.log(input);
     }
 
+    onToggle(id:number){
+      this.todoService.toggle(id);
+    }
+
     ngOnInit():void{
       this.todoService.getTodos().subscribe(result => {
         this.todos = result;

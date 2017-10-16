@@ -23,8 +23,11 @@ export class TodoService {
   }
 
   create(input:string){
-    console.log(`creating with input: ${input}`);
     return this.http.post('http://localhost:5000/api/todo/',{'input':input}).subscribe(resp => console.log(resp));
+  }
+
+  toggle(id:number){
+    return this.http.put('http://localhost:5000/api/todo/' + id.toString(), {'id':id}).subscribe(resp => console.log(resp));
   }
 
 }

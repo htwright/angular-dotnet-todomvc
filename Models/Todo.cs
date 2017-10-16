@@ -88,5 +88,30 @@ namespace angular_dotnet_todomvc.Models
             }
           return GlobalVariables.Todos;
         }
+
+        public static void Toggle(int id){
+          Boolean flag = false;
+          string ConnString = "Host=tantor.db.elephantsql.com;Username=whiptylt;Password=uLlB5fEK9y_Q82cNj8daLMRtSzys03jf;Database=whiptylt";
+          using(NpgsqlConnection Conn = new NpgsqlConnection(ConnString)){
+            try{
+              Conn.Open();
+            } catch (Exception e){
+              Console.WriteLine(e.ToString());
+            }
+            using (var cmd = new NpgsqlCommand(string.Format("SELECT * FROM todos where id = {0}", id), Conn)){
+              cmd.ExecuteNonQuery();
+              NpgsqlDataReader reader = cmd.ExecuteReader();
+              while(reader.Read()){
+                flag = reader.GetBoolean(2);
+              }
+              
+
+            }
+            using (var cmd = new NpgsqlCommand (string.Format("update todos set done = {0} where id = {1};", !flag, id))){
+              cmd.ExecuteNonQuery();
+            }
+          }
+
+        }
     }
 }

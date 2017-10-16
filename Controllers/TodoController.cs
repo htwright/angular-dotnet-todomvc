@@ -22,7 +22,7 @@ namespace angular_dotnet_todomvc.Controllers
       
 
         [HttpPost]
-        public void Post([FromBody] StoryAddRequest request){
+        public void Post([FromBody] TodoAddRequest request){
           Todo.Create(request.Input);
         }
 
@@ -31,11 +31,25 @@ namespace angular_dotnet_todomvc.Controllers
           Todo.Delete(id);
         }
 
+        [HttpPut("{id}")]
+
+        public void Put(int id){
+          Console.WriteLine(id);
+          Todo.Toggle(id);
+
+
+        }
+
         
 
         }
     }
-public class StoryAddRequest
+public class TodoAddRequest
 {
     public string Input { get; set; }
+}
+
+public class TodoPutRequest
+{
+  public int Id { get; set; }
 }
