@@ -19,7 +19,7 @@
         <tr *ngFor="let todo of todos">
             <td>{{ todo.id }}</td>
             <td>{{ todo.task }}</td>
-            <td>{{ todo.done ? 'complete' : 'incomplete' }}<button (click)="onToggle(todo.id)">toggle</button></td>
+            <td>{{ todo.done ? 'complete' : 'incomplete' }}<button (click)="onToggle(todo.id, todo.done)">toggle</button></td>
             <a (click)="onDelete(todo)">Delete</a>
         </tr>
     </tbody>

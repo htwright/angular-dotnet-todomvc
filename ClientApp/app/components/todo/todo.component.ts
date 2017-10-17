@@ -13,8 +13,8 @@ export class TodoComponent implements OnInit {
       console.log(input);
     }
 
-    onToggle(id:number){
-      this.todoService.toggle(id);
+    onToggle(id:number, done:boolean){
+      this.todoService.toggle(id, done);
     }
 
     ngOnInit():void{

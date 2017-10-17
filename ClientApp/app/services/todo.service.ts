@@ -26,8 +26,8 @@ export class TodoService {
     return this.http.post('http://localhost:5000/api/todo/',{'input':input}).subscribe(resp => console.log(resp));
   }
 
-  toggle(id:number){
-    return this.http.put('http://localhost:5000/api/todo/' + id.toString(), {'id':id}).subscribe(resp => console.log(resp));
+  toggle(id:number, done:boolean){
+    return this.http.put('http://localhost:5000/api/todo/' + id.toString(), {'done':done}).subscribe(resp => console.log(resp));
   }
 
 }
