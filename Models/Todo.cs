@@ -81,6 +81,7 @@ namespace angular_dotnet_todomvc.Models
                 x.Task = s;
                 x.Id = returnInts[i];
                 x.Completed = returnBools[i];
+                Console.WriteLine(returnBools[i].ToString());
                 GlobalVariables.Todos.Add(x);
                 i++;
               }

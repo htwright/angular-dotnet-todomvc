@@ -19,6 +19,7 @@ export class TodoComponent implements OnInit {
 
     ngOnInit():void{
       this.todoService.getTodos().subscribe(result => {
+        console.log(result);
         this.todos = result;
       }, error => console.error(error));
 

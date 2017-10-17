@@ -34,17 +34,9 @@ namespace angular_dotnet_todomvc.Controllers
         [HttpPut("{id}")]
 
         public void Put(int id, [FromBody] TodoPutRequest request){
-          Console.WriteLine(id.ToString());
-          if(request == null)Console.WriteLine("request is null");
-          Console.WriteLine(request.Done.ToString());
           
           Todo.Toggle(id, request.Done);
-
-
         }
-
-        
-
         }
     }
 public class TodoAddRequest
